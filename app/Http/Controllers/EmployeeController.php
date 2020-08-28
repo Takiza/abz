@@ -13,9 +13,12 @@ class EmployeeController extends Controller
 {
     public function index(Request $request)
     {
+//        if ($request->ajax()) {
+//        dd(Employee::latest()->paginate());
+//        }
         if ($request->ajax()) {
-            $data = Employee::latest()->get();
-            return Datatables::of($data)
+            $data = Employee::latest();
+            return Datatables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('photo', function($row){
                     $img =
@@ -40,7 +43,7 @@ class EmployeeController extends Controller
                     return $btn;
                 })
                 ->rawColumns(['photo', 'action'])
-                ->make(true);
+                ->toJson();
         }
 
         return view('employees.index');

@@ -1,1 +1,1 @@
-<img class=" img-responsive" style="width: 60px; height: 80px;" @if(file_exists(public_path('/storage/' . $employee->photo))) src="{{ asset('/storage/' . $employee->photo) }}" @else src="{{ $employee->photo }}" @endif>
+<img class=" img-responsive" style="width: 30px; height: 40px;" @if(file_exists(public_path('/storage/' . $employee->photo))) src="{{ asset('/storage/' . $employee->photo) }}" @else src="{{ $employee->photo }}" @endif>

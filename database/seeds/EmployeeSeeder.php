@@ -18,7 +18,7 @@ class EmployeeSeeder extends Seeder
                             ->each(function ($employee) use ($amount) {
                                 $employee->subordinates()->saveMany(factory(\App\Employee::class, $amount[3])->create()
                                     ->each(function ($employee) use ($amount) {
-//                                        $employee->subordinates()->saveMany(factory(\App\Employee::class, $amount[4])->create());
+                                        $employee->subordinates()->saveMany(factory(\App\Employee::class, $amount[4])->create());
                                     }));
                             }));
                     }));
