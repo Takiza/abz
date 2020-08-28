@@ -13,9 +13,6 @@ class EmployeeController extends Controller
 {
     public function index(Request $request)
     {
-//        if ($request->ajax()) {
-//        dd(Employee::latest()->paginate());
-//        }
         if ($request->ajax()) {
             $data = Employee::latest();
             return Datatables::eloquent($data)
@@ -25,7 +22,6 @@ class EmployeeController extends Controller
                         view('employees.image', [
                             'employee' => $row
                         ]);
-                    //'<img class="profile-user-img img-responsive img-circle" style="width: 50px; height: 50px;" src="/storage/' . $row->photo . '">';
                     return $img;
                 })
                 ->addColumn('position', function($row){
@@ -136,14 +132,13 @@ class EmployeeController extends Controller
         }
 
         $employee = Employee::find($request->id);
-//        $file_path = $request->file('photo')->store('uploads', 'public');
 
         if ($request->has('photo')) {
             $employee->photo = $request->file('photo')->store('uploads', 'public');
         }
 
         $employee->update([
-                        'name' => $request->name,
+            'name' => $request->name,
             'phone' => $request->phone,
             'email' => $request->email,
             'wage' => $request->wage,
