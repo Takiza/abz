@@ -153,6 +153,8 @@ class EmployeeController extends Controller
 
     public function delete(Request $request)
     {
+        if ($request->id == 1) return redirect()->route('admin.employees'); // сорри, дописал на ходу, сообщение об ошибке еще вывести алертом бы надо, но то чуть позже
+
         $position = Employee::find($request->id);
         $position->delete();
         return redirect()->route('admin.employees');
