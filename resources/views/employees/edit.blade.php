@@ -14,7 +14,7 @@
                 @csrf
                 <div class="mb-3">
                     <div class="form-group">
-                        <img @if(file_exists('/storage/' . $employee->photo)) src="{{ asset('storage/' . $employee->photo) }}" @else src="{{ $employee->photo }}" @endif>
+                        <img @if(file_exists(public_path('/storage/' . $employee->photo))) src="{{ asset('/storage/' . $employee->photo) }}" @else src="{{ $employee->photo }}" @endif>
                     </div>
                 </div>
                 <div class="mb-3">
