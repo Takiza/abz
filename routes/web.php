@@ -21,7 +21,7 @@ Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
 
-Route::group(['prefix' => 'admin', 'as' => 'admin.'], function () {
+Route::group(['prefix' => 'admin', 'as' => 'admin.', 'middleware:admin'], function () {
     Route::get('employees', 'EmployeeController@index')->name('employees');
     Route::get('employees/add', 'EmployeeController@add')->name('employees.add');
     Route::post('employees/store', 'EmployeeController@store')->name('employees.store');

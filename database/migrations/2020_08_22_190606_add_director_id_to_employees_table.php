@@ -15,7 +15,7 @@ class AddDirectorIdToEmployeesTable extends Migration
     {
         Schema::table('employees', function (Blueprint $table) {
             $table->foreignId('director_id')->nullable();
-            $table->foreign('director_id')->references('id')->on('employees')->onUpdate('cascade');
+            $table->foreign('director_id')->references('id')->on('employees')->onUpdate('cascade')->onDelete('cascade');
         });
     }
 
