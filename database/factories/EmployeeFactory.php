@@ -26,8 +26,8 @@ $factory->define(Employee::class, function (Faker $faker) {
         'emp_date' => $faker->date(),
         'phone' => $faker->e164PhoneNumber,
         'wage' => $faker->randomFloat(2, 8000, 100000),
-        'photo' => $faker->imageUrl(300, 400, 'people', true, $gender, false),
-        'position_id' => 1,
+        'photo' => $faker->imageUrl(300, 400, 'people', true, $gender, false), // хоть подпишу :(
+        'position_id' => rand(1, 5),
         'director_id' => 1
     ];
 });

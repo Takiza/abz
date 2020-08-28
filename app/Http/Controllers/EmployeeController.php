@@ -14,7 +14,7 @@ class EmployeeController extends Controller
     public function index(Request $request)
     {
         if ($request->ajax()) {
-            $data = Employee::latest();
+            $data = Employee::with('position');
             return Datatables::eloquent($data)
                 ->addIndexColumn()
                 ->addColumn('photo', function($row){
